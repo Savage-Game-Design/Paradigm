@@ -146,6 +146,12 @@ class para_g
 		class delete_localized_marker {};
 	};
 
+	class logging
+	{
+		PARA_GLOBAL_PATH(\logging);
+		class log { headerType = -1;};
+	};
+
 	class mission_interop
 	{
 		PARA_GLOBAL_PATH(\mission_interop);
