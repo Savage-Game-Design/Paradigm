@@ -18,9 +18,4 @@
 
 params ["_building"];
 
-if (isNil "para_s_bf_wreck_recovery_buildings") then {
-	//Init wreck recovery buildings array
-	para_s_bf_wreck_recovery_buildings = [];
-};
-
 para_s_bf_wreck_recovery_buildings pushBackUnique _building;

@@ -36,6 +36,8 @@ private _types = [];
 para_g_bases = [];
 //All buildings
 para_l_buildings = [];
+//Wreck recovery buildings
+para_s_bf_wreck_recovery_buildings = [];
 
 //Load any saved bases.
 [] call para_s_fnc_basebuilding_load;
