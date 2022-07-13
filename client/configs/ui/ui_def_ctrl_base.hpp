@@ -130,10 +130,10 @@ class para_RscListNBox
 	borderSize = 0;
 	shadow = 0; // Shadow (0 - none, 1 - directional, color affected by colorShadow, 2 - black outline)
 	
-	colorText[] = {1,1,1,1}; // Text and frame color
-	colorDisabled[] = {1,1,1,0.5}; // Disabled text color
-	colorSelect[] = {1,1,1,1}; // Text selection color
-	colorSelect2[] = {1,1,1,1}; // Text selection color (oscillates between this and colorSelect)
+	colorText[] = {PARA_C_DYNAMICGROUPS_COLOR_DEFAULT_CONFIG}; // Text and frame color
+	colorDisabled[] = {0.5, 0.5, 0.5, 1.0}; // Disabled text color
+	colorSelect[] = {0.5, 0.5, 0.5, 1.0}; // Text selection color
+	colorSelect2[] = {0.5, 0.5, 0.5, 0.6}; // Text selection color (oscillates between this and colorSelect)
 	colorShadow[] = {0,0,0,0.5}; // Text shadow color (used only when shadow is 1)
 	
 	colorPicture[] = {0.7,0.7,0.7,1};
