@@ -19,6 +19,12 @@
 params ["_building", "_quantity", ["_force", false]];
 
 private _supplySource = _building getVariable "para_g_current_supply_source";
+
+if (isNil "_supplySource") exitWith {
+	["ERROR", format ["Attempting to take supplies from building %1 that doesn't have a supply source", typeOf _building]] call para_g_fnc_log;
+	false;
+};
+
 private _currentSupplies = _supplySource getVariable "para_g_current_supplies";
 
 private _enoughSupplies = _currentSupplies > _quantity;
