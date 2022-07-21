@@ -90,9 +90,11 @@ _building setVariable ["para_g_objects", _objects, true];
 [_building, _buildProgress, false] call para_s_fnc_building_add_build_progress;
 
 //Block master arm from using buildings as a supply point.
-_building setVariable ["vn_master_arm_supplyAmmo", false, true];
-_building setVariable ["vn_master_arm_supplyFuel", false, true];
-_building setVariable ["vn_master_arm_supplyRepair", false, true];
+{
+	_x setVariable ["vn_master_arm_supplyAmmo", false, true];
+	_x setVariable ["vn_master_arm_supplyFuel", false, true];
+	_x setVariable ["vn_master_arm_supplyRepair", false, true];
+}forEach _objects;
 
 para_l_buildings pushBack _building;
 
