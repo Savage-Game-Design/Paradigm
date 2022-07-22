@@ -63,14 +63,14 @@ private _controls = [];
 			private _ctrlCheckbox = _display ctrlCreate ["RscCheckbox", -1, _ctrlGroup];
 			_ctrlCheckbox ctrlSetPosition [UIW(32.7), 0, UIW(1), UIH(1)];
 
-			_ctrlCheckbox cbSetChecked ([false, true]#_value);
+			_ctrlCheckbox cbSetChecked _value;
 
 			_ctrlCheckbox ctrlCommit 0;
 			_ctrlCheckbox ctrlAddEventHandler ["CheckedChanged", para_c_fnc_optionsMenu_onCheckedChanged];
 			_ctrlCheckbox setVariable ["#data", [_name, _configName, _type, _default, _value, _ctrlName, _ctrlBackground, _ctrlGroup]];
 			_controls pushBack _ctrlCheckbox;
 			#define PARSE_BOOL(N) ([false,true] select N)
-			_ctrlCheckbox ctrlSetTooltip format ["Default: %1\nCurrent: %2", PARSE_BOOL(_default), PARSE_BOOL(_value)];
+			_ctrlCheckbox ctrlSetTooltip format ["Default: %1\nCurrent: %2", PARSE_BOOL(_default), _value];
 			#undef PARSE_BOOL
 		};
 		case "slider": {

@@ -20,5 +20,12 @@ params ["_configName"];
 
 private _config = missionConfigFile >> "para_CfgOptions" >> _configName;
 private _default = getNumber (_config >> "default");
+private _type = getText (_config >> "type");
 
-profileNamespace getVariable [format ["para_optionsMenu_%1", _configName], _default]
+private _result = profileNamespace getVariable [format ["para_optionsMenu_%1", _configName], _default];
+
+if (_type isEqualTo "Checkbox" && _result isEqualType 0) then {
+	_result = _result > 0;
+};
+
+_result

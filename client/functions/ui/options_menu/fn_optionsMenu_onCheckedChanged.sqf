@@ -20,8 +20,12 @@ params ["_control", "_newValue"];
 private _data = _control getVariable "#data";
 _data params ["_name", "_configName", "_type", "_default", "_value", "_ctrlName", "_ctrlBackground", "_ctrlGroup"];
 
-[_control, _configName, _newValue, _value] call para_c_fnc_optionsMenu_handleChange;
 
 #define PARSE_BOOL(N) ([false,true] select N)
-_control ctrlSetTooltip format ["Default: %1\nCurrent: %2\nNew: %3", PARSE_BOOL(_default), PARSE_BOOL(_value), PARSE_BOOL(_newValue)];
+private _newValueBool = PARSE_BOOL(_newValue);
+private _valueBool = PARSE_BOOL(_value);
+private _defaultBool = PARSE_BOOL(_default);
 #undef PARSE_BOOL
+
+[_control, _configName, _newValueBool, _valueBool] call para_c_fnc_optionsMenu_handleChange;
+_control ctrlSetTooltip format ["Default: %1\nCurrent: %2\nNew: %3", _defaultBool, _valueBool, _newValueBool];

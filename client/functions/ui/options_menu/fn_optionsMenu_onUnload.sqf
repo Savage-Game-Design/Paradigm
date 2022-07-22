@@ -32,6 +32,9 @@ switch (_exitCode) do {
 		{
 			private _configName = getText (_x >> "variable");
 			private _default = getNumber (_x >> "default");
+			if (getText _config >> "type" isEqualTo "Checkbox") then {
+				_default = [false, true] select _default;
+			};
 			[_configName, _default] call para_c_fnc_optionsMenu_setValue;
 		} forEach _configs;
 	};
