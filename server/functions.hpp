@@ -123,6 +123,8 @@ class para_s
 		class bf_veh_spawn_create_vehicle_rehandler {};
 		class bf_veh_spawn_on_building_objects_changed {};
 		class bf_veh_spawn_on_building_placed {};
+		class bf_veh_spawn_on_functional {};
+		class bf_veh_spawn_on_nonfunctional {};
 	};
 
 	class building_features_wreck_recovery

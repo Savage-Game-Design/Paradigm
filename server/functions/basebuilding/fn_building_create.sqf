@@ -89,6 +89,13 @@ _building setVariable ["para_g_objects", _objects, true];
 //Do NOT do an object update, as we've instantiated everything correctly above.
 [_building, _buildProgress, false] call para_s_fnc_building_add_build_progress;
 
+//Block master arm from using buildings as a supply point.
+{
+	_x setVariable ["vn_master_arm_supplyAmmo", false, true];
+	_x setVariable ["vn_master_arm_supplyFuel", false, true];
+	_x setVariable ["vn_master_arm_supplyRepair", false, true];
+}forEach _objects;
+
 para_l_buildings pushBack _building;
 
 [_building, "onBuildingPlaced", [_building]] call para_g_fnc_building_fire_feature_event;
