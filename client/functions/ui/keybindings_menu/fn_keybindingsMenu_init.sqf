@@ -39,7 +39,7 @@
 // 	_optsBtn ctrlAddEventHandler ["ButtonClick",{
 // 		params ["_btn"];
 // 		_escDisplay = ctrlParent _btn;
-// 		[_escDisplay] call para_c_fnc_optionsMenu_init;
+// 		[_escDisplay] call para_c_fnc_optionsMenu_open;
 // 	}];
 
 // 	_bugBtn = _display ctrlCreate ["para_RscButtonMenu", -1];
@@ -54,4 +54,4 @@
 // }] call BIS_fnc_addScriptedEventHandler;
 
 
-// call para_c_fnc_optionsMenu_init:
+// call para_c_fnc_optionsMenu_open:

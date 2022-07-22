@@ -30,6 +30,7 @@
 	}];
 
     // Options
+	[] call para_c_fnc_optionsMenu_init;
 	_optsBtn = _display ctrlCreate ["para_RscButtonMenu", -1];
 	_optsBtn ctrlSetPosition [safeZoneX + UIW(1), safeZoneY + UIH(2.1), UIW(15), UIH(1)];
 	_optsBtn ctrlCommit 0;
@@ -37,7 +38,7 @@
 	_optsBtn ctrlAddEventHandler ["ButtonClick",{
 		params ["_btn"];
 		_escDisplay = ctrlParent _btn;
-		[_escDisplay] call para_c_fnc_optionsMenu_init;
+		[_escDisplay] call para_c_fnc_optionsMenu_open;
 	}];
 
 	_startBtn = _display ctrlCreate ["para_RscButtonMenu", -1];
