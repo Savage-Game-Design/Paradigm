@@ -29,49 +29,65 @@ class para_CfgOptions {
     class para_enableWelcomeScreen {
         name = "Enable welcome screen";
         tooltip = "Enables the welcome screen on mission start";
-        variable = "para_enableWelcomeScreen";
         type = "Checkbox";
         default = 0;
     };
     class para_enableTutorial {
         name = "Enable gamemode tutorials";
         tooltip = "Enables tutorial card popups with gameplay hints.";
-        variable = "para_enableTutorial";
         type = "Checkbox";
         default = 1;
     };
     class para_enableDynamicViewDist {
-        name = "Enable dynamic viewdistance settings";
-        tooltip = "Enables all dynamic viewdistance settings, only disable it if you are using your own viewdistance mods";
-        variable = "para_enableDynamicViewDist";
+        name = "Enable dynamic view distance settings";
+        tooltip = "Enables all dynamic view distance settings, only disable it if you are using your own view distance mods";
+        onChange = "para_c_perf_enable_dynamic_view_distance = _newValue";
         type = "Checkbox";
         default = 1;
     };
-    class para_maxViewDist {
-		name = "Max Viewdistance"; // Display Name
-		variable = "para_maxViewdist"; // Variable name for saving in PFS
-		tooltip = "Max Viewdistance"; // Tooltip
+    class para_minViewDist {
+		name = "Min. view distance"; // Display Name
+		tooltip = "Minimum distance that the view distance will be reduced to"; // Tooltip
+        onChange = "para_c_perf_min_view_distance = _newValue";
 		type = "Slider";
-		default = 1000;
-		range[] =  { 100, 12000 };
+		default = 800;
+		range[] =  { 800, 12000 };
+		step = 100;
+	};
+    class para_minObjectViewDist {
+		name = "Min. object view distance";
+		tooltip = "Minimum distance that object rendering will be reduced to";
+        onChange = "para_c_perf_min_object_view_distance = _newValue";
+		type = "Slider";
+		default = 800;
+		range[] =  { 800, 12000 };
+		step = 100;
+	};
+    class para_maxViewDist {
+		name = "Max. view distance"; // Display Name
+		tooltip = "Maximum distance that the view distance will be increased to"; // Tooltip
+        onChange = "para_c_perf_max_view_distance = _newValue";
+		type = "Slider";
+		default = 2000;
+		range[] =  { 800, 12000 };
 		step = 100;
 	};
     class para_maxObjectViewDist {
-		name = "Max Object Viewdistance";
-		variable = "para_maxObjectViewdist";
-		tooltip = "Max Object Viewdistance";
+		name = "Max. object view distance";
+		tooltip = "Maximum distance that object rendering will be increased to";
+        onChange = "para_c_perf_max_object_view_distance = _newValue";
 		type = "Slider";
-		default = 800;
-		range[] =  { 100, 12000 };
+		default = 2000;
+		range[] =  { 800, 12000 };
 		step = 100;
 	};
     class para_minFpsViewDist {
-        name = "Min FPS viewdistance autoscaler";
-		variable = "para_minFpsViewDist";
-		tooltip = "Min FPS you must reach to keep your current viewdistance value";
+        name = "Min. desired FPS";
+		tooltip = "Lower FPS than this will cause view distance to start decreasing";
+        onChange = "para_c_perf_min_fps_to_reduce_view_distance = _newValue";
 		type = "Slider";
 		default = 20;
-		range[] =  { 0, 240 };
+		range[] =  { 0, 120 };
 		step = 10;
 	};
 //     class Test: para_OptionCheckbox {

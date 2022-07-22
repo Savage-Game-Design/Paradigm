@@ -90,6 +90,7 @@ class para_c
 	{
 		PARA_CLIENT_PATH(\performance);
 		class perf_enable_dynamic_view_distance {};
+		class perf_update_dynamic_view_distance {};
 	};
 
 	class rehandler
