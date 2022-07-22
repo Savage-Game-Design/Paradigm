@@ -244,10 +244,12 @@ class para_c
 		class optionsMenu_getValue {};
 		class optionsMenu_handleChange {};
 		class optionsMenu_init {};
+		class optionsMenu_open {};
 		class optionsMenu_onCheckedChanged {};
 		class optionsMenu_onLBSelChanged {};
 		class optionsMenu_onSliderPosChanged {};
 		class optionsMenu_onUnload {};
+		class optionsMenu_setValue {};
 	};
 
 	class voting_menu

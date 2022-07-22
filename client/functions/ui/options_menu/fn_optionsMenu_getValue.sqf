@@ -16,11 +16,9 @@
 		["Test"] call para_c_fnc_getValue; // 0
 */
 
-params ["_name"];
+params ["_configName"];
 
-private _config = missionConfigFile >> "para_CfgOptions" >> _name;
+private _config = missionConfigFile >> "para_CfgOptions" >> _configName;
 private _default = getNumber (_config >> "default");
-private _varname = getText (_config >> "variable");
 
-private _value = profileNamespace getVariable [_varname, _default];
-_value;
+profileNamespace getVariable [format ["para_optionsMenu_%1", _configName], _default]

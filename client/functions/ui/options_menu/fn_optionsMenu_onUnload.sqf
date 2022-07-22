@@ -22,17 +22,17 @@ private _changes = _display getVariable ["#changes", []];
 switch (_exitCode) do {
 	case 1: {
 		{
-			_x params ["_varname", "_newValue"];
-			profileNamespace setVariable [_varname, _newValue];
+			_x params ["_configName", "_newValue"];
+			[_configName, _newValue] call para_c_fnc_optionsMenu_setValue;
 		} forEach _changes;
 	};
 	case 3: {
 		private _config = missionConfigFile >> "para_CfgOptions";
 		private _configs = "true" configClasses _config;
 		{
-			private _varname = getText (_x >> "variable");
+			private _configName = getText (_x >> "variable");
 			private _default = getNumber (_x >> "default");
-			profileNamespace setVariable [_varname, _default];
+			[_configName, _default] call para_c_fnc_optionsMenu_setValue;
 		} forEach _configs;
 	};
 	default {};
