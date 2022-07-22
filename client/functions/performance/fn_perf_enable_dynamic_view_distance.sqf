@@ -45,6 +45,8 @@ para_c_perf_current_object_view_distance = getObjectViewDistance select 0;
 ["para_c_perf_min_view_distance", 800] call _fnc_setIfNotSet;
 ["para_c_perf_min_object_view_distance", 800] call _fnc_setIfNotSet;
 
+["para_c_perf_disable_dynamic_view_distance_when_flying", false] call _fnc_setIfNotSet;
+
 ["perf_auto_view_distance", { call para_c_fnc_perf_update_dynamic_view_distance }, [], para_c_perf_fps_record_freq] call para_g_fnc_scheduler_add_job;
 
 

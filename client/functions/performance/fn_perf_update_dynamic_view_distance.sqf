@@ -38,12 +38,15 @@ private _average = _total / count _history;
 
 para_c_perf_min_fps_to_scale_up_view = para_c_perf_min_fps_to_reduce_view_distance + 6;
 
-if (_average < para_c_perf_min_fps_to_reduce_view_distance) then {
+private _isFlying = driver vehicle player isEqualTo player && vehicle player isKindOf "Air";
+private _forceUpscale = _isFlying && para_c_perf_disable_dynamic_view_distance_when_flying;
+
+if (_average < para_c_perf_min_fps_to_reduce_view_distance && !_forceUpscale) then {
 	para_c_perf_current_view_distance = ((getObjectViewDistance # 0) - para_c_perf_view_downscale_rate) max para_c_perf_min_view_distance;
 	para_c_perf_current_object_view_distance = (viewDistance - para_c_perf_view_downscale_rate) max para_c_perf_min_object_view_distance;
 };
 
-if (_average > para_c_perf_min_fps_to_scale_up_view) then {
+if (_average > para_c_perf_min_fps_to_scale_up_view || _forceUpscale) then {
 	para_c_perf_current_view_distance = (viewDistance + para_c_perf_view_upscale_rate) min para_c_perf_max_view_distance;
 	para_c_perf_current_object_view_distance = ((getObjectViewDistance # 0) + para_c_perf_view_upscale_rate) min para_c_perf_max_object_view_distance;
 };
