@@ -90,6 +90,13 @@ class para_CfgOptions {
 		range[] =  { 0, 120 };
 		step = 10;
 	};
+    class para_disableDynViewDistWhenFlying {
+        name = "Disable dynamic view distance when flying";
+		tooltip = "Forces the view distance to the max allowed when flying";
+        onChange = "para_c_perf_disable_dynamic_view_distance_when_flying = _newValue";
+		type = "Checkbox";
+		default = 0;
+	};
 //     class Test: para_OptionCheckbox {
 //         name = "Test option 1";
 //         tooltip = "This is the test option 1";
