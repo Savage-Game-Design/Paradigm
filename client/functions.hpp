@@ -304,5 +304,11 @@ class para_c
 		class zone_marker_update_info_position;
 	};
 
+	class toggle_zone
+	{
+		PARA_CLIENT_PATH(\ui\toggle_zone);
+		class para_RscDisplayToggleZone;
+	};
+
 
 };

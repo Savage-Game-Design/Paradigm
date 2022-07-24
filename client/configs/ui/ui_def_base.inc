@@ -296,9 +296,9 @@ _ctrl ctrlSetStructuredText parseText format["<t size='%1'>Lorem Ipsum</t>", TXT
 #define PARA_DG_GROUP_H  UIH(19)
 
 // onLoad and onUnload script macro:
-// #define PARA_INIT_DISPLAY(CLASSNAME) \
-// 	onLoad = ["onLoad", _this, #CLASSNAME] call para_c_fnc_ui_initMissionDisplay;\
-// 	onUnload = ["onUnload", _this, #CLASSNAME] call para_c_fnc_ui_initMissionDisplay;\
+#define PARA_INIT_DISPLAY(CLASSNAME) \
+	onLoad = ["onLoad", _this, #CLASSNAME] call para_c_fnc_ui_initMissionDisplay;\
+	onUnload = ["onUnload", _this, #CLASSNAME] call para_c_fnc_ui_initMissionDisplay;\
 
 //Main File for IDDs and IDCs
 #include "ui_def_idc.inc"

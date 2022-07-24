@@ -141,3 +141,6 @@ class RscTitles {
 #include "dynamicGroups\ui_dg_def_base.hpp"
 #include "dynamicGroups\ui_dg_def_idc.hpp"
 #include "dynamicGroups\main.hpp" 
+
+// Toogle Zones
+#include "toggle_zone\para_RscDisplayToggleZone.hpp"
