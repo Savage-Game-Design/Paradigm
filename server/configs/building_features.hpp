@@ -69,6 +69,8 @@ class CfgBuildingFeatures
 		onBuildingPlaced = "para_s_fnc_bf_veh_spawn_on_building_placed";
 		onBuildingObjectsChanged = "para_s_fnc_bf_veh_spawn_on_building_objects_changed";
 		onBuildingDeleted = "para_s_fnc_bf_veh_spawn_on_building_deleted";
+		onBuildingFunctional = "para_s_fnc_bf_veh_spawn_on_functional";
+		onBuildingNonFunctional = "para_s_fnc_bf_veh_spawn_on_nonfunctional";
 	};
 
 	class wreck_recovery
