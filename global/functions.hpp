@@ -139,6 +139,14 @@ class para_g
 		class event_subsystem_init {};
 	};
 
+	class fallthrough_world_checker
+	{
+		PARA_GLOBAL_PATH(\create\fallthrough_world_checker);
+		class fallthrough_checker_add_object {};
+		class fallthrough_checker_job {};
+		class fallthrough_checker_subsystem_init {};
+	};
+
 	class localized_markers
 	{
 		PARA_GLOBAL_PATH(\localized_markers);
