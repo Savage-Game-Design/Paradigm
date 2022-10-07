@@ -60,7 +60,7 @@ addMissionEventHandler ["PreloadFinished", {
 
 	diag_log "Paradigm: Player ready, waiting for server to be ready.";
 
-	private _timeout = diag_tickTime + 30;
+	private _timeout = diag_tickTime + 360;
 
 	waitUntil {
 		uiSleep 0.1;
