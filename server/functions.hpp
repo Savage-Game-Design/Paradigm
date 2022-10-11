@@ -222,6 +222,12 @@ class para_s
 		class on_player_respawn_rehandler {};
 	};
 
+	class terrain
+	{
+		PARA_SERVER_PATH(\terrain);
+		class hide_foliage {};
+	};
+
 	class voting
 	{
 		PARA_SERVER_PATH(\voting);
