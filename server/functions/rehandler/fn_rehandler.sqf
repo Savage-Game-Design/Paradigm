@@ -28,8 +28,9 @@ params [
 // check that player object making the call is the same as remoteExecutedOwner
 private _owner = owner _player;
 private _reowner = remoteExecutedOwner;
-if (_owner isEqualTo 0 || _reowner isEqualTo 0) exitWith {};
-if !(_owner isEqualTo _reowner) exitWith {};
+
+private _bypassOwnershipChecks = _reowner isEqualTo 0;
+if (!_bypassOwnershipChecks && (_owner isEqualTo 0 || _owner isNotEqualTo _reowner)) exitWith {};
 
 // check if function is allowed to be called
 private _config = missionConfigFile >> "CfgREHandler" >> _method;

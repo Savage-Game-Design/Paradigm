@@ -32,7 +32,7 @@ addMissionEventHandler ["PreloadFinished", {
 	private _fnc_loaded = compile preprocessFile "para_player_loaded_client.sqf";
 	private _fnc_initClient = compile preprocessFile "para_player_init_client.sqf";
 
-	waitUntil {!isNull findDisplay 46};
+	waitUntil {!isNull findDisplay 46 || !hasInterface};
 
 	diag_log "Paradigm: Preload started";
 
@@ -45,11 +45,11 @@ addMissionEventHandler ["PreloadFinished", {
 		//After pre-load is completed (all functions initialised)
 		missionNamespace getVariable ["bis_fnc_init", false] 
 		//No loading screens
-		&& !(call BIS_fnc_isLoading)
+		&& (!(call BIS_fnc_isLoading) || !hasInterface)
 		//After briefing
 		&& getClientStateNumber >= 10
 		//Player object created
-		&& !isNull player
+		&& (!isNull player || !hasInterface)
 		//Preload finished
 		&& !isNil "para_c_preload_finished"
 	};
