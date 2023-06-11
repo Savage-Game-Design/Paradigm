@@ -53,12 +53,16 @@ private _expandedActions = [];
 
 	_expandedActions pushBack _action;
 } forEach _actions;
+
 // Filter out any invalid conditions
 private _validActions = _expandedActions select {
 	private _condition = _x getOrDefault ["condition", true];
 
 	if (_condition isEqualType {}) then {
 		_condition = _object call _condition;
+		if (isNil "_condition") then {
+			_condition = true;
+		};
 	};
 
 	_condition
