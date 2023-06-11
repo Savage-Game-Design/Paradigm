@@ -37,8 +37,8 @@ if !(_usedSupplies) exitWith
 	false
 };
 
-_building setVariable ["bf_wreck_recoverName", _vehicleName];
-_building setVariable ["bf_wreck_nextUsageTimestamp", diag_tickTime + _respawnTime];
+_building setVariable ["bf_wreck_recoverName", _vehicleName, true];
+_building setVariable ["bf_wreck_nextUsageTimestamp", diag_tickTime + _respawnTime, true];
 true
 
 
