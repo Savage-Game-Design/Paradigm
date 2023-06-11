@@ -58,7 +58,8 @@ private _cooldown = getNumber (_spawningConfig >> "cooldown");
 
 private _modelSpawnPos = getArray (_featureConfig >> "spawnPositionModelSpace");
 private _spawnDir = getNumber (_featureConfig >> "spawnDirectionModelSpace");
-private _spawnPosAGL = _buildingObject modelToWorld _modelSpawnPos;
+private _spawnPosASL = _buildingObject modelToWorldWorld _modelSpawnPos;
+private _spawnPosAGL = ASLToAGL _spawnPosASL;
 
 if (count (_spawnPosAGL nearEntities 10 select {!(_x isKindOf "Animal")}) > 0) exitWith
 {
@@ -89,7 +90,7 @@ _spawnPosAGL set [2, 0.5];
 if (_isShip) then {
 	_vehicle setPosASL _spawnPosAGL;
 } else {
-	_vehicle setPos _spawnPosAGL;
+	_vehicle setPosASL _spawnPosASL;
 };
 
 _vehicle
