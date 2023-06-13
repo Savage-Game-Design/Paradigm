@@ -25,6 +25,6 @@ if (_newSupplies < para_s_bf_respawn_supply_cost && _isRegistered) then {
 	[_building] call para_s_fnc_bf_respawn_unregister_respawn;
 };
 
-if (_newSupplies > para_s_bf_respawn_supply_cost && !_isRegistered) then {
+if (_building getVariable ["para_s_building_functional", false] && _newSupplies > para_s_bf_respawn_supply_cost && !_isRegistered) then {
 	[_building] call para_s_fnc_bf_respawn_register_respawn;
 };
