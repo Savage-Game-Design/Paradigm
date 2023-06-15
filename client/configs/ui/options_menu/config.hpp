@@ -97,6 +97,18 @@ class para_CfgOptions {
 		type = "Checkbox";
 		default = 0;
 	};
+    class para_disablePhotoCameraSaving {
+        name = "Disable Photo Camera files saving";
+		tooltip = "Prevents photo camera photos from being saved to disk";
+        onChange = "\
+            !_newValue spawn {\
+	            waitUntil {missionNamespace getVariable ['vn_photoCamera_initialized', false]};\
+	            vn_photoCamera_allowed = _this;\
+            };\
+        ";
+		type = "Checkbox";
+		default = 0;
+	};
 //     class Test: para_OptionCheckbox {
 //         name = "Test option 1";
 //         tooltip = "This is the test option 1";
