@@ -96,7 +96,7 @@ if (!isNull _oldDisplay) then {
 [_wheelMenuEntries, _object] spawn {
 	params ["_wheelMenuEntries", "_object"];
 	// Try to stop wheel menus clashing with each other if close/open overlaps for some reason
-	uiSleep 0;
+	uiSleep 0.02;
 
 	// close menu on repeated press
 	private _EH_closeWM = {
