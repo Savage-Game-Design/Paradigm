@@ -73,6 +73,13 @@ private _objects = _spawnInfo apply
 	//This position is always going to be a bit inaccurate, as we don't have model's center offset until it's spawned in.
 	private _newObject = createVehicle [_objectClass, ASLtoAGL _pos, [], 0, 'CAN_COLLIDE'];
 	_newObject setDir _dir;
+
+	// HACKFIX: bugfix for Land_vn_bagfence_long_f_part0 model having no autocentering.
+	// Land_vn_bagfence_long_f does have autocentering, which means the real part spawns
+	// in higher than the ghost part. `0.419312` was measured manually, so this may not
+	// be an exact fix.
+	if (_objectClass isEqualTo "Land_vn_bagfence_long_f") then {_pos = _pos vectorAdd [0, 0, -0.419312]};
+
 	//Need to reset position as the spawned-in position will be inaccurate, and is broken by the rotation anyway.
 	_newObject setPosWorld _pos;
 	_newObject setVariable ["para_g_building", _building, true];
