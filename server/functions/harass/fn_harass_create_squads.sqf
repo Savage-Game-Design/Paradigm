@@ -66,9 +66,6 @@
 		_x setVariable ["harass_level", _enemyRatioComponent];
 	} forEach _harassablePlayers;
 
-	//Find players that aren't harassed enough.
-	private _friendlyPlayersToHarass = _harassablePlayers select {_x getVariable "harass_level" < 1};
-
 	//Keep occupied FOBs harassed
 	private _playersToRemove = [];
 	{
@@ -91,6 +88,9 @@
 	} forEach para_g_bases;
 
 	private _harassablePlayers = _harassablePlayers - _playersToRemove;
+
+	//Find players that aren't harassed enough.
+	private _friendlyPlayersToHarass = _harassablePlayers select {_x getVariable "harass_level" < 1};
 
 	private _lastPlayersToHarassLength = -1;
 
