@@ -137,7 +137,7 @@ switch _mode do
 		// Log
 		if (PARA_C_DYNAMICGROUPS_LOG_ENABLED) then
 		{
-			["onLoad: %1 / %2 / %3 / %4 / %5", _display, _sectionManage, _sectionGroups] call BIS_fnc_logFormat;
+			["onLoad: %1 / %2 / %3", _display, _sectionManage, _sectionGroups] call BIS_fnc_logFormat;
 		};
 	};
 
@@ -1142,7 +1142,7 @@ switch _mode do
 		// Log
 		if (PARA_C_DYNAMICGROUPS_LOG_ENABLED) then
 		{
-			["OnKickPlayerButtonClick: %1", _group, _groupLeader, _kickedPlayer] call BIS_fnc_logFormat;
+			["OnKickPlayerButtonClick: %1 / %2 / %3", _group, _groupLeader, _kickedPlayer] call BIS_fnc_logFormat;
 		};
 	};
 
@@ -1206,7 +1206,7 @@ switch _mode do
 		// Log
 		if (PARA_C_DYNAMICGROUPS_LOG_ENABLED) then
 		{
-			["OnDisbandGroupButtonClick: %1", _group, _groupPlayers, _groupLeader] call BIS_fnc_logFormat;
+			["OnDisbandGroupButtonClick: %1 / %2 / %3", _group, _groupPlayers, _groupLeader] call BIS_fnc_logFormat;
 		};
 	};
 
@@ -1541,7 +1541,7 @@ switch _mode do
 			// Log
 			if (PARA_C_DYNAMICGROUPS_LOG_ENABLED) then
 			{
-				"SetGroupName: %1 / %2" call BIS_fnc_logFormat;
+				"SetGroupName" call BIS_fnc_logFormat;
 			};
 		};
 	};
