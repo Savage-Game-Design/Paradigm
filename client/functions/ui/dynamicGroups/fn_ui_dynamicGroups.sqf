@@ -1398,14 +1398,21 @@ switch _mode do
 
 	case "OnGroupIconButtonClick" :
 	{
-		private _insignia = ["SendClientMessage", ["LoadRandomInsignia"]] call GROUPS;
-		(group player) setVariable [PARA_C_DYNAMICGROUPS_GROUP_INSIGNIA_VAR, _insignia, PARA_C_DYNAMICGROUPS_IS_PUBLIC];
+
+		private _insigniasAll = ["SendClientMessage", ["LoadInsignias"]] call GROUPS;
+
+		private _grp = group player;
+		private _insigniaCurrent = _grp getVariable [PARA_C_DYNAMICGROUPS_GROUP_INSIGNIA_VAR, PARA_C_DYNAMICGROUPS_DEFAULT_INSIGNIA];
+		private _idx = _insigniasAll findIf {_x isEqualTo _insigniaCurrent};
+		private _insignia = _insigniasAll select (_idx + 1);
+
+		_grp setVariable [PARA_C_DYNAMICGROUPS_GROUP_INSIGNIA_VAR, _insignia, PARA_C_DYNAMICGROUPS_IS_PUBLIC];
 		["Update", [true]] call DISPLAY;
 
 		// Log
 		if (PARA_C_DYNAMICGROUPS_LOG_ENABLED) then
 		{
-			["OnGroupIconButtonClick: insignia: %1", _insignia] call BIS_fnc_logFormat;
+			["OnGroupIconButtonClick: insignia: %1 idx: %2", _insignia, _idx] call BIS_fnc_logFormat;
 		};
 	};
 
