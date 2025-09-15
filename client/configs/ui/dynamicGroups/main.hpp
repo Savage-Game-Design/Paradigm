@@ -120,6 +120,15 @@ class para_RscDisplayDynamicGroups
                     h = UIH(1.5);
                     colorText[] = PARA_C_DYNAMICGROUPS_COLOR_DEFAULT_CONFIG;
                 };
+                class GroupIconButton : para_RscButton
+                {
+                    idc = PARA_C_DYNAMICGROUPS_GROUPICONBUTTON_IDC;
+                    x = UIW(10);
+                    y = UIH(2.1);
+                    w = UIW(7);
+                    h = UIH(6);
+                    text="";
+                };
                 class GroupIcon : para_RscPictureKeepAspect 
                 {
                     idc = PARA_C_DYNAMICGROUPS_GROUPICON_IDC;

@@ -29,6 +29,11 @@ private ["_mode", "_params"];
 _mode   = _this param [0, "", [""]];
 _params = _this param [1, [], [[]]];
 
+if (PARA_C_DYNAMICGROUPS_LOG_ENABLED) then
+{
+	["ui_dynamicGroups mode: %1", _mode] call BIS_fnc_logFormat;
+};
+
 switch _mode do
 {
 	case "onLoad":
@@ -71,8 +76,9 @@ switch _mode do
 		_checkboxPrivate 	= _display displayCtrl PARA_C_DYNAMICGROUPS_CHECKBOXPRIVATE_IDC;
 
 		// Misc
-		private ["_iconPicture", "_editGroupName"];
+		private ["_iconPicture", "_iconPictureButton", "_editGroupName"];
 		_iconPicture 		= _display displayCtrl PARA_C_DYNAMICGROUPS_GROUPICON_IDC;
+		_iconPictureButton 	= _display displayCtrl PARA_C_DYNAMICGROUPS_GROUPICONBUTTON_IDC;
 		_editGroupName 		= _display displayCtrl PARA_C_DYNAMICGROUPS_EDITGROUPNAME_IDC;
 
 		// Add click events to list boxes
@@ -104,6 +110,7 @@ switch _mode do
 		// Add event handlers to group picture/icon
 		_iconPicture ctrlAddEventHandler ["MouseEnter", { with uiNamespace do { ["OnGroupIconMouseEnter", _this] call DISPLAY; }; }];
 		_iconPicture ctrlAddEventHandler ["MouseExit", { with uiNamespace do { ["OnGroupIconMouseExit", _this] call DISPLAY; }; }];
+		_iconPictureButton ctrlAddEventHandler ["ButtonClick", { with uiNamespace do { ["OnGroupIconButtonClick", _this] call DISPLAY; }; }];
 
 		// Add event handlers for editing the group name
 		_editGroupName ctrlAddEventHandler ["KeyDown", { with uiNamespace do { ["SetGroupName", _this] call DISPLAY; }; }];
@@ -1386,6 +1393,27 @@ switch _mode do
 	case "OnGroupIconMouseExit" :
 	{
 
+	};
+
+
+	case "OnGroupIconButtonClick" :
+	{
+
+		private _insigniasAll = ["SendClientMessage", ["LoadInsignias"]] call GROUPS;
+
+		private _grp = group player;
+		private _insigniaCurrent = _grp getVariable [PARA_C_DYNAMICGROUPS_GROUP_INSIGNIA_VAR, PARA_C_DYNAMICGROUPS_DEFAULT_INSIGNIA];
+		private _idx = _insigniasAll findIf {_x isEqualTo _insigniaCurrent};
+		private _insignia = _insigniasAll select (_idx + 1);
+
+		_grp setVariable [PARA_C_DYNAMICGROUPS_GROUP_INSIGNIA_VAR, _insignia, PARA_C_DYNAMICGROUPS_IS_PUBLIC];
+		["Update", [true]] call DISPLAY;
+
+		// Log
+		if (PARA_C_DYNAMICGROUPS_LOG_ENABLED) then
+		{
+			["OnGroupIconButtonClick: insignia: %1 idx: %2", _insignia, _idx] call BIS_fnc_logFormat;
+		};
 	};
 
 	case "OnPrivateStateChanged" :
