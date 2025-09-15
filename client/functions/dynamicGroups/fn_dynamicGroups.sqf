@@ -1302,7 +1302,7 @@ switch (_mode) do
     {
         private _allInsignias = (configfile >> "CfgUnitInsignia") call BIS_fnc_getCfgSubClasses;
         _allInsignias
-            select {(_x select [0, 2] isEqualTo "vn") && !(_x in ["vn_ccn_badge_01", "vn_ccn_badge_02"])}
+            select {(_x select [0, 2] isEqualTo "vn") && !(_x in ["vn_ccn_badge_01", "vn_ccn_badge_02", "vn_ccn_badge_03","vn_ccn_badge_04","vn_ccn_badge_05"])}
     };
 
     case "LoadInsignia" :
