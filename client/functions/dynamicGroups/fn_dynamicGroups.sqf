@@ -1300,7 +1300,9 @@ switch (_mode) do
 
     case "LoadInsignias" :
     {
-        (configfile >> "CfgUnitInsignia") call BIS_fnc_getCfgSubClasses;
+        private _allInsignias = (configfile >> "CfgUnitInsignia") call BIS_fnc_getCfgSubClasses;
+        _allInsignias
+            select {(_x select [0, 2] isEqualTo "vn") && !(_x in ["vn_ccn_badge_01", "vn_ccn_badge_02"])}
     };
 
     case "LoadInsignia" :
@@ -1406,7 +1408,7 @@ switch (_mode) do
         }
         else
         {
-            _availableInsignias = (configfile >> "CfgUnitInsignia") call BIS_fnc_getCfgSubClasses;
+            _availableInsignias = ["LoadInsignias"] call GROUPS;
             uiNamespace setVariable [PARA_C_DYNAMICGROUPS_AVAILABLE_INSIGNIA_VAR, _availableInsignias];
         };
 
